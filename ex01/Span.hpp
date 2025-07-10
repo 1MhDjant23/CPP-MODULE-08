@@ -19,7 +19,7 @@ class	Span {
 		Span( const Span& other );
 		Span&	operator=(const Span& other);
 		void	addNumber(int n);
-		int		shortestSpan() ;
+		int		shortestSpan() const;
 		int		longestSpan() const;
 };
 

@@ -33,11 +33,17 @@ void	Span::addNumber(int n) {
 		throw spanException();
 }
 
-int	Span::shortestSpan()  {
+int	Span::shortestSpan() const {
 	if (this->span.empty() || this->span.size() < 2)
 		throw spanException();
-
-	return 0;
+	std::vector<int>	sortedVect = this->span;
+	std::sort(sortedVect.begin(), sortedVect.end());
+	int	shortSpan = INT_MAX;
+	for (size_t i = 0; i < sortedVect.size() - 1; i++) {
+		if (sortedVect[i + 1] - sortedVect[i] < shortSpan)
+			shortSpan = sortedVect[i + 1] - sortedVect[i];
+	}
+	return shortSpan;
 }
 
 int	Span::longestSpan() const {

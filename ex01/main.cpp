@@ -1,7 +1,7 @@
 #include "Span.hpp"
 
 int	main() {
-	Span	sp;
+	Span	sp(6);
 
 	sp.addNumber(8);
 	sp.addNumber(-9);
@@ -9,8 +9,8 @@ int	main() {
 	sp.addNumber(77);
 	sp.addNumber(0);
 	sp.addNumber(55);
-	sp.longestSpan();
-
+	// sp.longestSpan();
+	std::cout << "shortest span is: " << sp.shortestSpan() << std::endl;
 	sp.shortestSpan();
 	// std::cout << "the size of this span is :" <<std::endl;
 	return 0;
