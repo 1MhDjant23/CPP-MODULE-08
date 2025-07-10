@@ -1,6 +1,7 @@
 #-------# Colors #-------#
 BRED = \033[1;31m
 BGRN = \033[1;32m
+GRN = \033[0;32m
 BYEL = \033[1;33m
 BBLU = \033[1;34m
 BMAJ = \033[1;35m
@@ -25,13 +26,13 @@ HEADERS = $(shell find . -name "*.hpp")
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADERS)
-	@echo "$(BRED)$(BYEL)Compiling $(NAME)...$(RESET)"
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	@echo "$(BYEL)Linking object files...$(RESET)"
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	@echo "$(BRED)$(BGRN)$(NAME) compiled successfully!$(RESET)"
 
 %.o: %.cpp $(HEADERS)
-	@echo "Compiling $<"
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "$(GRN)Compiling $<$(RESET)"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@if find . -name "*.o" -type f -print -quit | grep -q .; then \

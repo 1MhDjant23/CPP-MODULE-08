@@ -1,11 +1,13 @@
 #include "Span.hpp"
 
 Span::Span() {
+	this->capacity = 0;
 	if (this->span.empty())
 		std::cout << "vector is empty" << std::endl;
 }
 
-Span::Span( unsigned int N ) : span(N) {
+Span::Span( unsigned int N ) {
+	this->capacity = N;
 	std::cout << "the size of vector is : " << span.size() << std::endl;
 }
 
@@ -25,31 +27,16 @@ Span&	Span::operator=( const Span& other ) {
 }
 
 void	Span::addNumber(int n) {
-	this->span.push_back(n);
+	if (this->span.size() < this->capacity)
+		this->span.push_back(n);
+	else
+		throw spanException();
 }
 
 int	Span::shortestSpan()  {
-	// if (this->span.empty() || this->span.size() < 2)
-	// 	throw spanException();
-	std::cout << "####### - Before Sorting - #######" << std::endl;
-	for (size_t i = 0; i < span.size(); i++) {
-		std::cout << "--> " << span[i] << std::endl;
-	}
-	std::cout << "####### - After Sorting - #######" << std::endl;
-	std::vector<int>::iterator	it = this->span.begin();
-	while (it != span.end())
-	{
-		std::cout << "in iterator" << std::endl;
-		std::cout << *it << std::endl;
-		it++;
-	}
-	
-	sort(span.begin(), span.end());
+	if (this->span.empty() || this->span.size() < 2)
+		throw spanException();
 
-	for (size_t i = 0; i < span.size(); i++) {
-		std::cout << "--> " << span[i] << std::endl;
-	}
-	
 	return 0;
 }
 

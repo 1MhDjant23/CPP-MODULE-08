@@ -10,6 +10,7 @@
 
 class	Span {
 	private:
+		unsigned int		capacity;
 		std::vector<int>	span;
 	public:
 		Span();
