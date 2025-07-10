@@ -2,7 +2,11 @@
 #define	__SPAN_HPP__
 
 #include <iostream>
+#include <exception>
+#include <algorithm>
 #include <vector>
+
+/*--------# Span Class #--------*/
 
 class	Span {
 	private:
@@ -14,8 +18,18 @@ class	Span {
 		Span( const Span& other );
 		Span&	operator=(const Span& other);
 		void	addNumber(int n);
-		int		shortestSpan() const;
+		int		shortestSpan() ;
 		int		longestSpan() const;
 };
+
+// std::ostream&	operator<<(std::ostream& streamOut, const Span& obj);
+
+/*--------# Customized Exception For Span #--------*/
+
+class	spanException : public std::exception {
+	public:
+		const char* what() const throw();
+};
+
 
 #endif

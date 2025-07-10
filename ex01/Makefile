@@ -34,12 +34,12 @@ $(NAME): $(OBJ) $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@if find . -name "*.o" | grep -q .; then /
-		echo "Cleaning object files..."
-		rm -f $(OBJ)
+	@if find . -name "*.o" -type f -print -quit | grep -q .; then \
+		echo "$(BMAJ)Cleaning object files...$(RESET)";\
+		rm -f $(OBJ);\
 		sleep 1; \
 	else \
-		echo "$(BYEL)No Object Files to clean$(RESET)"; \
+		echo "$(BYEL)	No Object Files to clean$(RESET)"; \
 	fi
 
 fclean: clean
@@ -48,7 +48,7 @@ fclean: clean
 		rm -f $(NAME); \
 		sleep 0.8; \
 	else \
-		echo "$(BTEAL)No executable file to remove$(RESET)"; \
+		echo "$(BTEAL)	No executable file to remove$(RESET)"; \
 	fi
 
 re: fclean all
