@@ -1,27 +1,20 @@
 #include "Span.hpp"
 
-Span::Span() {
-	this->capacity = 0;
-	if (this->span.empty())
-		std::cout << "vector is empty" << std::endl;
-}
+Span::Span() {	return ;	}
 
-Span::Span( unsigned int N ) {
-	this->capacity = N;
-}
+Span::Span( unsigned int N ) : capacity(N) { return ; }
 
-Span::~Span() {}
+Span::~Span() { return ; }
 
 Span::Span( const Span& other ) {
-	// span.assign()
 	this->span = other.span;
 }
 
 Span&	Span::operator=( const Span& other ) {
 	if (this != &other) {
-
+		this->capacity = other.getCapacity();
+		this->span = other.getVect();
 	}
-	
 	return *this;
 }
 
@@ -42,13 +35,6 @@ int	Span::shortestSpan() const {
 		if (sortedVect[i + 1] - sortedVect[i] < shortSpan)
 			shortSpan = sortedVect[i + 1] - sortedVect[i];
 	}
-	for (size_t i = 0; i < this->span.size(); i++)
-	{
-		std::cout << "------ " << span[i] << std::endl;
-	}
-	std::cout << span.size() << " is the size" << std::endl;
-	std::cout << capacity << " is the capacity" << std::endl;
-	std::cout << capacity - span.size()<< " is the ca" << std::endl;
 	return shortSpan;
 }
 
@@ -67,25 +53,29 @@ void	Span::addMoreNumber(const std::vector<int>::iterator& start, const std::vec
 		return ;
 	}
 	std::vector<int>::iterator	it = start;
-	for (size_t i = 0; i < this->capacity - this->span.size() + 1; i++) {
-		if (it == final)
-			break;
+	while (it != final && span.size() < capacity)
+	{
 		this->span.push_back(*it);
 		it++;
 	}
-	
-		std::cout << "#################" << std::endl;
-	// std::cout << "start is: " << *start << std::endl;
-	// std::cout << "hiiii" << std::endl;
-	
-	// std::cout << "final is: " << *final << std::endl;
 }
 
-/*--------------------------------*/
-// std::ostream&	operator<<(std::ostream& streamOut, const Span& __unused obj) {
-	
-// 	return streamOut;
-// }
+/*--------------# Additionall Method #--------------*/
+
+const std::vector<int>&	Span::getVect() const {
+	return this->span;
+}
+
+unsigned int	Span::getCapacity() const {
+	return this->capacity;
+}
+
+void	Span::diplay() const {
+	for (size_t i = 0; i < span.size(); i++)
+	{
+		std::cout << i << ": " << span[i] << std::endl;
+	}
+}
 
 /*--------------# spanException implementation #--------------*/
 

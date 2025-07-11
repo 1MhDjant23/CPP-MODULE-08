@@ -1,33 +1,38 @@
 #include "Span.hpp"
 
 int	main() {
-	Span	sp(5);
-
-	std::vector<int> vv;
-	vv.push_back(1);
-	vv.push_back(2);
-	vv.push_back(3);
-	vv.push_back(4);
-	vv.push_back(5);
-	// vv.push_back(7);
-
-	sp.addNumber(3);
-	sp.addNumber(4);
-	sp.addMoreNumber(vv.begin(), vv.end());
-
-	// sp.addNumber(17);
-	// sp.addNumber(9);
-	// sp.addNumber(11);
-	// sp.addNumber(13);
-	// sp.addNumber(8);
-	// sp.addNumber(-9);
-	// sp.addNumber(4);
-	// sp.addNumber(77);
-	// sp.addNumber(0);
-	// sp.addNumber(55);
-	// sp.longestSpan();
-	std::cout << "longest span is: " << sp.longestSpan() << std::endl;
-	std::cout << "shortest span is: " << sp.shortestSpan() << std::endl;
-	// std::cout << "the size of this span is :" <<std::endl;
+	{
+		Span sp = Span(5);
+		try
+		{
+			sp.addNumber(6);
+			sp.addNumber(3);
+			sp.addNumber(17);
+			sp.addNumber(9);
+			sp.addNumber(11);
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
+			sp.addNumber(12);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << "#____________________________________________________#" << std::endl;
+	{
+	std::vector<int>	vect(10000, 999);
+	Span	sp(100);
+	try
+	{
+		sp.addMoreNumber(vect.begin(), vect.end());
+		sp.diplay();
+		sp.addNumber(22);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
 	return 0;
 }
