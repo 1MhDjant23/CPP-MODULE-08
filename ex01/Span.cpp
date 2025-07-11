@@ -8,7 +8,6 @@ Span::Span() {
 
 Span::Span( unsigned int N ) {
 	this->capacity = N;
-	std::cout << "the size of vector is : " << span.size() << std::endl;
 }
 
 Span::~Span() {}
@@ -43,12 +42,43 @@ int	Span::shortestSpan() const {
 		if (sortedVect[i + 1] - sortedVect[i] < shortSpan)
 			shortSpan = sortedVect[i + 1] - sortedVect[i];
 	}
+	for (size_t i = 0; i < this->span.size(); i++)
+	{
+		std::cout << "------ " << span[i] << std::endl;
+	}
+	std::cout << span.size() << " is the size" << std::endl;
+	std::cout << capacity << " is the capacity" << std::endl;
+	std::cout << capacity - span.size()<< " is the ca" << std::endl;
 	return shortSpan;
 }
 
 int	Span::longestSpan() const {
-	std::cout << "the size inside the longest is :" << this->span.size() <<std::endl;
-	return 0;
+	if (this->span.empty() || this->span.size() < 2)
+		throw spanException();
+	std::vector<int>	sortVect = this->span;
+	std::sort(sortVect.begin(), sortVect.end());
+	int	longSpan = sortVect[this->span.size() - 1] - sortVect[0];
+	return longSpan;
+}
+
+void	Span::addMoreNumber(const std::vector<int>::iterator& start, const std::vector<int>::iterator& final) {
+	if (start == final) {
+		std::cerr << "Passed empty vector!" << std::endl;
+		return ;
+	}
+	std::vector<int>::iterator	it = start;
+	for (size_t i = 0; i < this->capacity - this->span.size() + 1; i++) {
+		if (it == final)
+			break;
+		this->span.push_back(*it);
+		it++;
+	}
+	
+		std::cout << "#################" << std::endl;
+	// std::cout << "start is: " << *start << std::endl;
+	// std::cout << "hiiii" << std::endl;
+	
+	// std::cout << "final is: " << *final << std::endl;
 }
 
 /*--------------------------------*/

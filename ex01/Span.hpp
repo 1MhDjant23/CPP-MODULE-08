@@ -21,9 +21,9 @@ class	Span {
 		void	addNumber(int n);
 		int		shortestSpan() const;
 		int		longestSpan() const;
-};
+		void	addMoreNumber(const std::vector<int>::iterator& start, const std::vector<int>::iterator& final);
 
-// std::ostream&	operator<<(std::ostream& streamOut, const Span& obj);
+};
 
 /*--------# Customized Exception For Span #--------*/
 
