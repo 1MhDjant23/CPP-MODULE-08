@@ -59,6 +59,11 @@
 		"type_traits": "cpp",
 		"typeinfo": "cpp",
 		"unordered_map": "cpp",
-		"utility": "cpp"
-	}
+		"utility": "cpp",
+		"stack": "cpp",
+		"*.tpp": "c",
+		"deque": "c",
+		"list": "c"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }

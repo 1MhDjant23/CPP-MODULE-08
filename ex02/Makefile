@@ -30,7 +30,7 @@ $(NAME): $(OBJ) $(HEADERS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	@echo "$(BRED)$(BGRN)$(NAME) compiled successfully!$(RESET)"
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp $(HEADERS) MutantStack.tpp
 	@echo "$(GRN)Compiling $<$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
