@@ -1,9 +1,7 @@
 #--------# COLOR CODES #--------#
-# Reset
 RESET = \033[0m
 RED = \033[31m
 UNDERLINE = \033[4m
-# Bold
 BOLD = \033[1m
 BRED = \033[1;31m
 BGREEN = \033[32m
@@ -36,19 +34,19 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
-	@if find . -name ".o" -type f -print -quit | grep -q .; then \
+	@if find . -name "*.o" -type f -print -quit | grep -q .; then \
 		echo "$(BOLD)$(RED)Cleaning object files...$(RESET)"; \
 		rm -f $(OBJ); \
 	else \
-		echo "$(BOLD)$(RED)No object files to clean.$(RESET)"; \
+		echo "$(BOLD)$(UNDERLINE)	No object files to clean.$(RESET)"; \
 	fi
 
 fclean: clean
-	if find . -name "$(NAME)" -type f -print -quit | grep -q .; then \
+	@if find . -name "$(NAME)" -type f -print -quit | grep -q .; then \
 		echo "$(BOLD)$(RED)Cleaning executable file...$(RESET)"; \
 		rm -f $(NAME); \
 	else \
-		echo "$(BOLD)$(RED)No executable to clean.$(RESET)"; \
+		echo "$(BOLD)$(UNDERLINE)	No executable to clean.$(RESET)"; \
 	fi
 
 re: fclean all

@@ -1,7 +1,5 @@
 #include "Span.hpp"
 
-Span::Span() {	return ;	}
-
 Span::Span( unsigned int N ) : capacity(N) { return ; }
 
 Span::~Span() { return ; }

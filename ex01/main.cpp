@@ -1,6 +1,7 @@
 #include "Span.hpp"
 
 int	main() {
+	std::cout << "#_________________# Intra Tests #_________________#" << std::endl;
 	{
 		Span sp = Span(5);
 		try
@@ -19,7 +20,7 @@ int	main() {
 			std::cerr << e.what() << std::endl;
 		}
 	}
-	std::cout << "#____________________________________________________#" << std::endl;
+	std::cout << "#_________________# Own Tests #_________________#" << std::endl;
 	{
 	std::vector<int>	vect(10000, 999);
 	Span	sp(100);
@@ -29,8 +30,7 @@ int	main() {
 		sp.diplay();
 		sp.addNumber(22);
 		}
-		catch(const std::exception& e)
-		{
+		catch( const std::exception& e ) {
 			std::cerr << e.what() << std::endl;
 		}
 	}

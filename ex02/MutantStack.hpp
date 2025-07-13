@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stack>
 #include <deque>
+#include <list>
 
 template <class T>
 class   MutantStack : public std::stack<T>

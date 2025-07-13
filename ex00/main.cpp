@@ -14,7 +14,7 @@ int main() {
 	v1.push_back(2);
 	try
 	{
-		easyfind(v1, 4);
+		easyfind(v1, 2);
 		easyfind(l, -11);
 	}
 	catch(const std::exception& e)
